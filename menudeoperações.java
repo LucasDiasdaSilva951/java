@@ -4,9 +4,9 @@ class menudeoperações {
     public static void main(String[] args) {
     Scanner entrada = new Scanner(System.in);
     System.out.println("Digite o primeiro número: ");
-    int primeironúmero = entrada.nextInt();
+    double primeironúmero = entrada.nextDouble();
     System.out.println("Digite o segundo número: ");
-    int segundonúmero = entrada.nextInt();
+    double segundonúmero = entrada.nextDouble();
     System.out.println("1 - Somar");
     System.out.println("2 - Subtrair");
     System.out.println("3 - Multiplicar");
@@ -34,7 +34,9 @@ class menudeoperações {
             break;
         case 0: 
             System.out.println("Programa encerrado.");
+            break;
         default:
+            System.out.println("Opção Inválida.");
             break;
         }
         entrada.close();
