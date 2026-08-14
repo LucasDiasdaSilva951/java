@@ -37,6 +37,7 @@ class menudeoperações {
             break;
         default:
             System.out.println("Opção Inválida.");
+            break;
         }
         entrada.close();
     } 
