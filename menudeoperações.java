@@ -14,7 +14,7 @@ class menudeoperações {
     System.out.println("0 - Sair");
     System.out.println("Escolha uma opção: ");
     int opção = entrada.nextInt();
-    entrada.close();
+    
     switch (opção) {
         case 1:
             double resultado = primeironúmero + segundonúmero;
@@ -37,6 +37,6 @@ class menudeoperações {
         default:
             break;
         }
-    }
-    
+        entrada.close();
+    } 
 }
