@@ -28,6 +28,8 @@ public class nomes {
             }
         }
         System.out.println("\nQuantidade de nomes: " + nomes.size() + " elementos");
-        System.out.println("\033[32mNomes cadastrados com sucesso!\033[m");
+        System.out.println("\033[32mNomes cadastrados com sucesso!\033[m"); 
+        entrada.close();   
     }
+    
 }
