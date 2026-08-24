@@ -175,10 +175,9 @@ public class sistemadegerenciamentodeumalanchonete {
             System.out.println("\033[31mNão existem códigos promocionais cadastrados no sistema!\033[m");
             }
             else {
-            for (String valor : códigospromocionais) {
-              System.out.println(valor); }
-            System.out.println("Quantidade de códigos promocionais cadastrados no sistema: Existem " + códigospromocionais.size() + ".");
-            
+                for (String valor : códigospromocionais) {
+                System.out.println(valor); }
+                System.out.println("Quantidade de códigos promocionais cadastrados no sistema: Existem " + códigospromocionais.size() + ".");
             }
         }
         else if (opc == 3) {
@@ -226,7 +225,7 @@ public class sistemadegerenciamentodeumalanchonete {
                     break;
                 }  
             }    
-            }
+            } 
             else if (opc == 2) {
                 while (true) {
                     System.out.print("Digite o nome do produto: ");
@@ -241,49 +240,50 @@ public class sistemadegerenciamentodeumalanchonete {
                         break;
                     }
                 }
-                
             }
-            else if (opc == 3) {
-                while (true) {
-                System.out.print("Digite o nome do produto: ");
-                String nomedoproduto = entrada.next();
-                System.out.println(nomedoprodutoeseuspreços);
-                if (nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
-                    System.out.print("Digite o preço: R$");
-                    float preçodoproduto = entrada.nextFloat();
-                    nomedoprodutoeseuspreços.replace(nomedoproduto, preçodoproduto);
-                    System.out.println("\033[32mPreço alterado com sucesso!\033[m"); 
-                    System.out.println(nomedoprodutoeseuspreços);
-                    break;
-                }
-                else if (!nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
-                    System.err.println("\033[31mProduto não encontrado! Digite um produto existente válido.\033[m");
-                    break;
-                }
-            } 
-            } else if (opc == 4) {
-                while (true) {
+                else if (opc == 3) {
+                    while (true) {
                     System.out.print("Digite o nome do produto: ");
-                String nomedoproduto = entrada.next();
-                if (nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
-                    nomedoprodutoeseuspreços.remove(nomedoproduto, nomedoprodutoeseuspreços.get(nomedoproduto));
-                    System.out.println("\033[32mPreço removido com sucesso!\033[m");
-                    break;
-                }
-                else if (!nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
-                    System.err.println("\033[31mProduto não encontrado! Digite um produto existente válido.\033[m");
-                    break;
+                    String nomedoproduto = entrada.next();
+                    System.out.println(nomedoprodutoeseuspreços);
+                    if (nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
+                        System.out.print("Digite o preço: R$");
+                        float preçodoproduto = entrada.nextFloat();
+                        nomedoprodutoeseuspreços.replace(nomedoproduto, preçodoproduto);
+                        System.out.println("\033[32mPreço alterado com sucesso!\033[m"); 
+                        System.out.println(nomedoprodutoeseuspreços);
+                        break;
                     }
+                    else if (!nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
+                        System.err.println("\033[31mProduto não encontrado! Digite um produto existente válido.\033[m");
+                        break;
+                        }
+                    } 
+                } 
+                else if (opc == 4) {
+                    while (true) {
+                        System.out.print("Digite o nome do produto: ");
+                    String nomedoproduto = entrada.next();
+                    if (nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
+                        nomedoprodutoeseuspreços.remove(nomedoproduto, nomedoprodutoeseuspreços.get(nomedoproduto));
+                        System.out.println("\033[32mPreço removido com sucesso!\033[m");
+                        break;
+                    }
+                    else if (!nomedoprodutoeseuspreços.containsKey(nomedoproduto)) {
+                        System.err.println("\033[31mProduto não encontrado! Digite um produto existente válido.\033[m");
+                        break;
+                        }
+                    }
+                } 
+                else if (opc == 0) {
+                    System.out.println("\033[32mSaída concluída com sucessso!\033[m");
+                    break;
                 }
-            } else if (opc == 0) {
-                System.out.println("\033[32mSaída concluída com sucessso!\033[m");
-                break;
+                else {
+                    System.err.println("\033[31mERRO: Opção inválida.\033[m");
+                }
             }
-            else {
-                System.err.println("\033[31mERRO: Opção inválida.\033[m");
-            }
-        }
-    
+        
     } else if (opcao == 6) {
         while (true) {
         System.out.println("===== FILA DE PEDIDOS =====");
