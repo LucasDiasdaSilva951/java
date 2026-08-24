@@ -70,9 +70,6 @@ public class sistemadegerenciamentodeumalanchonete {
                 break;
              }
             }
-            System.out.println("======================");
-            cont+=1-1;
-            System.out.println(cont);
         }
             }
             else if (opc == 2) {
@@ -299,7 +296,7 @@ public class sistemadegerenciamentodeumalanchonete {
             filadepedidos.add(pedido);
             System.out.println("\033[32mPedido adicionado à fila com sucesso!\033[m");
         } else if (opc == 2) {
-            if (filadepedidos.contains(filadepedidos.peek())) {
+            if (filadepedidos.isEmpty()) {
                 System.out.println("Próximo pedido a ser entregue: " + filadepedidos.peek());
                 System.out.println("\033[32mO próximo pedido está em preparação. Aguarde um pouco!\033[m");
             }
@@ -307,7 +304,7 @@ public class sistemadegerenciamentodeumalanchonete {
                 System.out.println("\033[31mNão existem pedidos na fila!\033[m");
             }
         } else if (opc == 3) {
-            if (filadepedidos.isEmpty()) {
+            if (!filadepedidos.isEmpty()) {
                 System.out.println("Pedido preparado: " + filadepedidos.peek());
                 filadepedidos.poll();
                 System.out.println("\033[32mPedido removido com sucesso!\033[m");
