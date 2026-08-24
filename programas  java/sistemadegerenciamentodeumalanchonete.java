@@ -79,11 +79,18 @@ public class sistemadegerenciamentodeumalanchonete {
                 }
             }
             else if (opc == 3) {
+                if (!notas.isEmpty()) {
+                   soma = 0;
                 for (Integer valor : notas) {
                     soma += valor;
                 }
-            media = soma / notas.size();
-            System.out.println("Média total de cada nota: " + media);
+                media = soma / notas.size();
+                System.out.println("Média total de cada nota: " + media); 
+                }
+                else {
+                    System.out.println("\033[31mNão existem avaliações cadastradas!\033[m");
+                }
+                
             }
             else if (opc == 0) {
                 System.out.println("\033[32mSaída concluída com sucesso!\033[m");
@@ -124,7 +131,7 @@ public class sistemadegerenciamentodeumalanchonete {
                     produtoscadastrados.remove(nomedoprodutoapesquisar);
                     System.out.println("\033[32mProduto removido com sucesso!\033[m");
                 }
-                else if (!produtosgerais.contains(nomedoprodutoapesquisar) ) {
+                else if (!produtoscadastrados.containsKey(nomedoprodutoapesquisar) ) {
                     System.out.println("\033[31mERRO: O nome digitado não existe no sistema!\033[m");
                 }
             }
@@ -296,7 +303,7 @@ public class sistemadegerenciamentodeumalanchonete {
             filadepedidos.add(pedido);
             System.out.println("\033[32mPedido adicionado à fila com sucesso!\033[m");
         } else if (opc == 2) {
-            if (filadepedidos.isEmpty()) {
+            if (!filadepedidos.isEmpty()) {
                 System.out.println("Próximo pedido a ser entregue: " + filadepedidos.peek());
                 System.out.println("\033[32mO próximo pedido está em preparação. Aguarde um pouco!\033[m");
             }
