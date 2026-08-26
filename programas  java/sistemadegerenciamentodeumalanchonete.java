@@ -6,102 +6,89 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class sistemadegerenciamentodeumalanchonete {
-    public static void main(String[] args) {
-    String[] categorias = {"Bebidas", "Lanches", "Sobremesas"};
-    ArrayList<Integer> notas = new ArrayList<>();
-    ArrayList<Object> produtosgerais = new ArrayList<>();
-    HashMap <String, Float> produtoscadastrados = new HashMap<>();produtosgerais.add(produtoscadastrados);
-    HashSet <String> códigospromocionais = new HashSet<>();
-    HashMap <String, Float> nomedoprodutoeseuspreços = new HashMap<>();
-    Queue <String> filadepedidos = new LinkedList<>();
-    float soma = 0;
-    float media = 0;
-    Scanner entrada = new Scanner(System.in);
-    while (true) {
-    System.out.println("\n===== CATEGORIAS =====");
-    System.out.println("1 - Mostrar categorias");
-    System.out.println("2 - Avaliações dos produtos");
-    System.out.println("3 - Gerenciar Produtos");
-    System.out.println("4 - Códigos promocionais");
-    System.out.println("5 - Preços dos produtos");
-    System.out.println("6 - Fila de pedidos");
-    System.out.println("0 - Sair do programa");
-    System.out.println("======================");
-    System.out.print("Digite a opção desejada: ");
-    int opcao = entrada.nextInt();
-    if (opcao == 1) {
+    public static void Opcao1doMenu() {
+        String[] categorias = {"Bebidas", "Lanches", "Sobremesas"};
         System.out.print("Categorias do restaurante: ");
         for (String valor : categorias) {
             System.out.print(valor + " | ");
         }
-    } else if (opcao == 2) {
+    }
+    public static void Opcao2doMenu() {
+        ArrayList<Integer> notas = new ArrayList<>();
+        float soma = 0;
+        float media = 0;
+        Scanner entrada = new Scanner(System.in);
         while (true) {
-            System.out.println("\n===== AVALIAÇÕES =====");
-            System.out.println("1 - Cadastrar avaliações");
-            System.out.println("2 - Mostrar avaliações");
-            System.out.println("3 - Calcular médias");
-            System.out.println("0 - Voltar");
-            System.out.println("======================");
-            System.out.print("Digite a opção desejada: ");
-            int opc = entrada.nextInt();
-            System.out.println("======================");
-            if (opc == 1) {
-            for (int cont = 1; cont < 4; cont++) {
-            System.out.println("===== CADASTRO DE NOTAS =====");
-            while (true) {
-             System.out.print("Digite a nota 1: ");   
-             int nota1 = entrada.nextInt();  
-             if (nota1 > 10 || nota1 < 0) {
-                System.out.println("\033[31mERRO: Nota inválida. Digite uma nota válida.\033[m");
-             } 
-             else {
-                notas.add(nota1);
-                break;
-             }
-            }
-            while (true) {
-             System.out.print("Digite a nota 2: ");   
-             int nota2 = entrada.nextInt();  
-             if (nota2 > 10 || nota2 < 0) {
-                System.err.println("\033[31mERRO: Nota inválida. Digite uma nota válida.\033[m");
-             } 
-             else {
-                notas.add(nota2);
-                break;
-             }
+        System.out.println("\n===== AVALIAÇÕES =====");
+        System.out.println("1 - Cadastrar avaliações");
+        System.out.println("2 - Mostrar avaliações");
+        System.out.println("3 - Calcular médias");
+        System.out.println("0 - Voltar");
+        System.out.println("======================");
+        System.out.print("Digite a opção desejada: ");
+        int opc = entrada.nextInt();
+        System.out.println("======================");
+        if (opc == 1) {
+        for (int cont = 1; cont < 4; cont++) {
+        System.out.println("===== CADASTRO DE NOTAS =====");
+        while (true) {
+            System.out.print("Digite a nota 1: ");   
+            int nota1 = entrada.nextInt();  
+            if (nota1 > 10 || nota1 < 0) {
+            System.out.println("\033[31mERRO: Nota inválida. Digite uma nota válida.\033[m");
+            } 
+            else {
+            notas.add(nota1);
+            break;
             }
         }
+        while (true) {
+            System.out.print("Digite a nota 2: ");   
+            int nota2 = entrada.nextInt();  
+            if (nota2 > 10 || nota2 < 0) {
+            System.err.println("\033[31mERRO: Nota inválida. Digite uma nota válida.\033[m");
+            } 
+            else {
+            notas.add(nota2);
+            break;
             }
-            else if (opc == 2) {
-                System.out.print("Todas as avaliações cadastradas: ");
-                for (Integer valor : notas) {
-                    System.out.print(valor + " | ");
-                }
+        }
+    }
+        }
+        else if (opc == 2) {
+            System.out.print("Todas as avaliações cadastradas: ");
+            for (Integer valor : notas) {
+                System.out.print(valor + " | ");
             }
-            else if (opc == 3) {
-                if (!notas.isEmpty()) {
-                   soma = 0;
-                for (Integer valor : notas) {
-                    soma += valor;
-                }
-                media = soma / notas.size();
-                System.out.println("Média total de cada nota: " + media); 
-                }
-                else {
-                    System.out.println("\033[31mNão existem avaliações cadastradas!\033[m");
-                }
-                
+        }
+        else if (opc == 3) {
+            if (!notas.isEmpty()) {
+                soma = 0;
+            for (Integer valor : notas) {
+                soma += valor;
             }
-            else if (opc == 0) {
-                System.out.println("\033[32mSaída concluída com sucesso!\033[m");
-                break;
+            media = soma / notas.size();
+            System.out.println("Média total de cada nota: " + media); 
             }
             else {
-                System.out.println("\033[31mERRO: Opção inválida.\033[m");
+                System.out.println("\033[31mNão existem avaliações cadastradas!\033[m");
             }
+            
         }
-    
-    } else if (opcao == 3) {
+        else if (opc == 0) {
+            System.out.println("\033[32mSaída concluída com sucesso!\033[m");
+            break;
+        }
+        else {
+            System.out.println("\033[31mERRO: Opção inválida.\033[m");
+        }
+    }
+    entrada.close();
+}
+    public static void Opcao3doMenu() {
+        ArrayList<Object> produtosgerais = new ArrayList<>();
+        HashMap <String, Float> produtoscadastrados = new HashMap<>();produtosgerais.add(produtoscadastrados);
+        Scanner entrada = new Scanner(System.in);
         while (true) {
             System.out.println("\n===== PRODUTOS =====");
             System.out.println("1 - Adicionar produto");
@@ -143,7 +130,11 @@ public class sistemadegerenciamentodeumalanchonete {
                 System.err.println("\033[31mERRO: Opção inválida.\033[m");
             }
         }
-    } else if (opcao == 4) {
+        entrada.close();
+    }
+    public static void Opcao4doMenu() {
+        HashSet <String> códigospromocionais = new HashSet<>();
+        Scanner entrada = new Scanner(System.in);
         while (true) {
         System.out.println("===== CÓDIGOS PROMOCIONAIS =====");
         System.out.println("1 - Adicionar código");
@@ -195,9 +186,13 @@ public class sistemadegerenciamentodeumalanchonete {
             break;
         } else { 
             System.err.println("\033[31mERRO: Digite um valor válido.\033[m");
+            }
         }
+        entrada.close();
     }
-    } else if (opcao == 5) {
+    public static void Opcao5doMenu() {
+        HashMap <String, Float> nomedoprodutoeseuspreços = new HashMap<>();
+        Scanner entrada = new Scanner(System.in);
         while (true) {
             System.out.println("===== PREÇO DOS PRODUTOS =====");
             System.out.println("1 - Cadastrar preço");
@@ -283,9 +278,12 @@ public class sistemadegerenciamentodeumalanchonete {
                     System.err.println("\033[31mERRO: Opção inválida.\033[m");
                 }
             }
-        
-    } else if (opcao == 6) {
-        while (true) {
+            entrada.close();
+        }
+    public static void Opcao6doMenu() {
+        Queue <String> filadepedidos = new LinkedList<>();
+        Scanner entrada = new Scanner(System.in);
+         while (true) {
         System.out.println("===== FILA DE PEDIDOS =====");
         System.out.println("1 - Adicionar pedido");
         System.out.println("2 - Ver próximo pedido");
@@ -337,10 +335,38 @@ public class sistemadegerenciamentodeumalanchonete {
             System.err.println("\033[31mERRO: Opção inválida.\033[m");
             }  
         }
-    } else if (opcao == 0) {
-        System.out.println("\033[32mPrograma encerrado com sucesso! Volte Sempre!\033[m");
-        break;
-    } else {
+        entrada.close();
+    }
+    public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
+    while (true) {
+        System.out.println("\n===== CATEGORIAS =====");
+        System.out.println("1 - Mostrar categorias");
+        System.out.println("2 - Avaliações dos produtos");
+        System.out.println("3 - Gerenciar Produtos");
+        System.out.println("4 - Códigos promocionais");
+        System.out.println("5 - Preços dos produtos");
+        System.out.println("6 - Fila de pedidos");
+        System.out.println("0 - Sair do programa");
+        System.out.println("======================");
+        System.out.print("Digite a opção desejada: ");
+        int opcao = entrada.nextInt();
+        if (opcao == 1) {
+            Opcao1doMenu();
+        } else if (opcao == 2) {
+            Opcao2doMenu();
+        } else if (opcao == 3) {
+            Opcao3doMenu();
+        } else if (opcao == 4) {
+            Opcao4doMenu();
+        } else if (opcao == 5) {
+            Opcao5doMenu();
+        } else if (opcao == 6) {
+            Opcao6doMenu();
+        } else if (opcao == 0) {
+            System.out.println("\033[32mPrograma encerrado com sucesso! Volte Sempre!\033[m");
+            break;
+        } else {
         System.out.println("\033[31mERRO: Valor inválido\033[m");
         }
     }
