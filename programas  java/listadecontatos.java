@@ -21,7 +21,7 @@ public class listadecontatos {
         String telefone;
         Scanner entrada = new Scanner(System.in);
         while (true) {
-          System.out.println("===== LISTA DE CONTATOS =====");
+        System.out.println("===== LISTA DE CONTATOS =====");
         System.out.println("1 - Adicionar contato");
         System.out.println("2 - Mostrar contato");
         System.out.println("0 - Sair");
