@@ -93,6 +93,7 @@ public class operadoresmat {
                 break;
             }
             if (opcao == 0) {
+                // Encerramento do programa
                 System.out.println("\033[32mPrograma encerrado com sucesso. Volte sempre!\033[m");
                 break;
             }
