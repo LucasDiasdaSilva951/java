@@ -10,6 +10,9 @@ public class operadoresmat {
     public static int MultiplicarValores (int n1, int n2) {
         return n1*n2;
     }
+    public static double DividirValores(int n1, int n2) {
+        return n1/n2;
+    }
     public static int VerificaInt(Scanner entradadevalores, String msg) {
         while (true) {
             try {
@@ -63,11 +66,11 @@ public class operadoresmat {
                 // Parte da soma (feito)
                 ArrayList<Integer> soma = new ArrayList<>();
                 int num1soma = VerificaInt(entrada, "Digite o primeiro número: ");
-                if (num1soma > 0 || num1soma < 0) {
+                if (num1soma > 0) {
                     soma.add(num1soma);
                 }    
                 int num2soma = VerificaInt(entrada, "Digite o segundo número: "); 
-                if (num2soma > 0 || num2soma < 0) {
+                if (num2soma > 0) {
                     soma.add(num2soma);
                 }
                 System.out.println("A soma entre " + soma.get(0) + " + " + soma.get(1) +  " é " + SomarValores(soma.get(0), soma.get(1)) + ".");   
@@ -86,10 +89,41 @@ public class operadoresmat {
                 System.out.println("A subtração entre " + subtração.get(0) + " - " + subtração.get(1) + " é " + SubtrairValores(num1subtração, num2subtração));
                 break;
             case 3:
-                // Parte da multiplicação (em andamento)
+                // Parte da multiplicação (feito)
+                ArrayList<Integer> multiplicação = new ArrayList<>();
+                int num1multiplicação = VerificaInt(entrada, "Digite o primeiro número: ");
+                if (num1multiplicação > 0) {
+                    multiplicação.add(num1multiplicação);
+                } 
+                int num2multiplicação = VerificaInt(entrada, "Digite o segundo número: "); 
+                if (num2multiplicação > 0) {
+                    multiplicação.add(num2multiplicação); 
+                }
+                System.out.println("A multiplicação entre " + multiplicação.get(0) + " x " + multiplicação.get(1) + " é " + MultiplicarValores(multiplicação.get(0), multiplicação.get(1)));
                 break;
             case 4:
                 // Parte da divisão (em andamento)
+                ArrayList<Integer> divisão = new ArrayList<>();
+                int num1divisão = VerificaInt(entrada, "Digite o primeiro número: ");
+                if (num1divisão > 0) {
+                    divisão.add(num1divisão);
+                }
+                while (true) {
+                     int num2divisão = VerificaInt(entrada, "Digite o segundo número: ");
+                if (num1divisão < num2divisão) {
+                    System.out.println("\033[31mDigite um valor menor que o numerador!\033[m");
+                } 
+                else if (num2divisão > 0) {
+                    divisão.add(num2divisão); 
+                }
+                else if (num2divisão == 0) {
+                    System.out.println("\033[31mNão aceitamos valores nulos. Digite um valor positivo!\033[m");
+                }
+                if (num2divisão > 0 && num1divisão >= num2divisão) {
+                    System.out.println("A divisão entre " + divisão.get(0) + " ÷ " + divisão.get(1) + " é " + DividirValores(divisão.get(0), divisão.get(1)));
+                    break;
+                    }
+                } 
                 break;
             }
             if (opcao == 0) {
