@@ -11,7 +11,7 @@ public class operadoresmat {
         return n1*n2;
     }
     public static double DividirValores(int n1, int n2) {
-        return n1/n2;
+        return (double) n1/n2;
     }
     public static int VerificaInt(Scanner entradadevalores, String msg) {
         while (true) {
@@ -102,7 +102,8 @@ public class operadoresmat {
                 System.out.println("A multiplicação entre " + multiplicação.get(0) + " x " + multiplicação.get(1) + " é " + MultiplicarValores(multiplicação.get(0), multiplicação.get(1)));
                 break;
             case 4:
-                // Parte da divisão (em andamento)
+                // Parte da divisão (feito)
+                // O numerador deve ser maior que o denominador nesse caso.
                 ArrayList<Integer> divisão = new ArrayList<>();
                 int num1divisão = VerificaInt(entrada, "Digite o primeiro número: ");
                 if (num1divisão > 0) {
