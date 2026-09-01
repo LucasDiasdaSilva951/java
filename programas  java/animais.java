@@ -7,7 +7,7 @@ public class animais {
         public void alterarNomeAnimal(String nome) {
             this.nome = nome;
         }
-        public static String comer() {
+        public String comer() {
             return " está comendo.";
         }
     }
@@ -16,11 +16,11 @@ public class animais {
         Animal animal = new Animal();
         animal.nome = "Cachorro";
         System.out.println("Animal 1: " + animal.obterNomeAnimal());
-        System.out.println("O " + animal.obterNomeAnimal() + Animal.comer());
+        System.out.println("O " + animal.obterNomeAnimal() + animal.comer());
         System.out.println();
         animal.alterarNomeAnimal("Leão"); 
         System.out.println("Animal 2: " + animal.obterNomeAnimal());
-        System.out.println("O " + animal.obterNomeAnimal() + Animal.comer());   
+        System.out.println("O " + animal.obterNomeAnimal() + animal.comer());   
         System.out.println();
     }
 }
