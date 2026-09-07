@@ -97,6 +97,48 @@ public class sistemadegestaoclinicaveterinária {
         } else {
         System.out.println("Consulta não encontrada.");
         }
+
+        System.out.println("\n===== BUSCAR CLIENTE =====");
+
+        Cliente clienteaEncontrar = clinica.buscarCliente("993.127.445-31");
+
+        if (clienteaEncontrar != null) {
+            clienteaEncontrar.exibirInformacoes();
+        } else {
+            System.out.println("\033[31mCliente não encontrado.\033[m");
+        }
+
+        System.out.println("===== BUSCAR VETERINÁRIO =====");
+
+        Veterinario veterinarioaEncontrar = clinica.buscarVeterinario("CRMV-SP-67890");
+
+        if (veterinarioaEncontrar != null) {
+            veterinarioaEncontrar.exibirInformacoes();
+        } else {
+            System.out.println("\033[31mVeterinário não encontrado.\033[m");
+        }
+
+        System.out.println("===== BUSCAR CONSULTA =====");
+
+        Consulta consultaAEncontrar = clinica.buscarConsulta(3);
+
+        if (consultaAEncontrar != null) {
+            veterinarioaEncontrar.exibirInformacoes();
+        } else {
+            System.out.println("\033[31mConsulta não encontrada.\033[m");
+        }
+
+        System.out.println("===== CANCELAR CONSULTA =====");
+
+        boolean cancelada = clinica.cancelarConsulta(5);
+
+        if (cancelada) {
+            System.out.println("\033[32mConsulta cancelada com sucesso!\033[m");
+            System.out.println("\n===== CONSULTAS APÓS CANCELAMENTO =====");
+            clinica.listarConsultas();
+        } else {
+            System.out.println("\033[31mConsulta não encontrada.\033[m");
+        }   
     }
 }
 
@@ -200,11 +242,11 @@ class Veterinario extends Pessoa {
 
     @Override 
     public void exibirInformacoes() {
-        System.out.println("Nome do veterinário: " + this.obterNome());
-        System.out.println("Cpf do veterinário " + this.obterNome() + ": " + this.obterCpf());
-        System.out.println("Telefone do veterinário " + this.obterNome() + ": " + this.obterTelefone());
-        System.out.println("CRMV do veterinário " + this.obterNome() + ": " + this.obterCrmv());
-        System.out.println("Especialidade do veterinário " + this.obterNome() + ": " + this.obterEspecialidade());
+        System.out.println("Nome do(a) veterinário: " + this.obterNome());
+        System.out.println("Cpf do(a) veterinário " + this.obterNome() + ": " + this.obterCpf());
+        System.out.println("Telefone do(a) veterinário " + this.obterNome() + ": " + this.obterTelefone());
+        System.out.println("CRMV do(a) veterinário " + this.obterNome() + ": " + this.obterCrmv());
+        System.out.println("Especialidade do(a) veterinário " + this.obterNome() + ": " + this.obterEspecialidade());
         System.out.println();
     }
 }
@@ -394,7 +436,7 @@ class Consulta {
             this.diagnostico = diagnostico;
         }
         else {
-            System.out.println("A consulta já foi realizada!");
+            System.out.println("\033[31mA consulta já foi realizada!\033[m");
         }
     }
 
@@ -430,15 +472,29 @@ class Clinica {
     }
 
     public void cadastrarCliente(Cliente cliente) {
-        clientes.add(cliente);
+        if (buscarCliente(cliente.obterCpf()) == null) {
+           clientes.add(cliente); 
+        } else {
+            System.out.println("\033[31mJá existe um cliente cadastrado com esse CPF!\033[m");
+        }
+        
     }
 
     public void cadastrarVeterinario(Veterinario veterinario) {
+        if (buscarVeterinario(veterinario.obterCrmv() ) == null) {
         veterinarios.add(veterinario);
+        } else {
+            System.out.println("\033[31mJá existe um veterinário com esse CRMV!\033[m");
+        }
     }
 
     public void cadastrarConsulta(Consulta consulta) {
-        consultas.add(consulta);
+        if (buscarConsulta(consulta.obterCodigo()) == null) {
+          consultas.add(consulta);  
+        } else {
+            System.out.println("\033[31mJá existe uma consulta com esse código!\033[m");
+        }
+        
     }
 
     public Cliente buscarCliente(String cpf) {
